@@ -12,11 +12,9 @@ import (
 
 	"go.mongodb.org/mongo-driver/mongo"
 
-	"github.com/ocakhasan/getir-api-task/controllers/requests"
-
-	"github.com/ocakhasan/getir-api-task/controllers/responses"
-
 	"github.com/ocakhasan/getir-api-task/controllers"
+	"github.com/ocakhasan/getir-api-task/controllers/requests"
+	"github.com/ocakhasan/getir-api-task/controllers/responses"
 	"github.com/ocakhasan/getir-api-task/models/inmemory"
 	mongoModel "github.com/ocakhasan/getir-api-task/models/mongo"
 )
