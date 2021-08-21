@@ -32,12 +32,10 @@ go run main.go
 Project automatically runs on port `3000` but you can change it via `.env` file.
 
 Project consists of 3 parts.
-- [GETIR-API-TASK](#getir-api-task)
-- [HOW TO RUN THE PROJECT](#how-to-run-the-project)
-		- [Get data from MongoDB](#get-data-from-mongodb)
-		- [Post data to InMemory](#post-data-to-inmemory)
-		- [Get data from Inmemory](#get-data-from-inmemory)
-		- [HOW TO TEST](#how-to-test)
+
+- [Get data from MongoDB](#get-data-from-mongodb)
+- [Post data to InMemory](#post-data-to-inmemory)
+- [Get data from Inmemory](#get-data-from-inmemory)
 
 
 ### Get data from MongoDB
