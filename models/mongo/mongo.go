@@ -4,17 +4,15 @@ package mongo
 import (
 	"context"
 	"log"
+	"os"
 	"time"
 
 	"github.com/ocakhasan/getir-api-task/controllers/errors"
-
 	"github.com/ocakhasan/getir-api-task/controllers/requests"
 
 	"go.mongodb.org/mongo-driver/bson"
-
-	"go.mongodb.org/mongo-driver/mongo/options"
-
 	driver "go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 // Config is to create everything related with MONGO
@@ -131,8 +129,8 @@ func getTime(s string) (time.Time, error) {
 // CreateConfig returns config values related with MongoDB
 func CreateConfig() Config {
 	return Config{
-		URI:        "mongodb+srv://challengeUser:WUMglwNBaydH8Yvu@challenge-xzwqd.mongodb.net/getir\u0002case-study?retryWrites=true",
-		Database:   "getir-case-study",
-		Collection: "records",
+		URI:        os.Getenv("GETIR_URI"),
+		Database:   os.Getenv("DATABASE"),
+		Collection: os.Getenv("COLLECTION"),
 	}
 }

@@ -4,19 +4,14 @@ package controllers
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"io"
 	"net/http"
 
 	"github.com/ocakhasan/getir-api-task/controllers/errors"
-
 	"github.com/ocakhasan/getir-api-task/controllers/requests"
-
-	modelMongo "github.com/ocakhasan/getir-api-task/models/mongo"
-
 	"github.com/ocakhasan/getir-api-task/controllers/responses"
-
 	"github.com/ocakhasan/getir-api-task/models/inmemory"
+	modelMongo "github.com/ocakhasan/getir-api-task/models/mongo"
 )
 
 // contentType is application/json for our program.
@@ -44,7 +39,6 @@ func (h *RequestHandler) GetMongo(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Header.Get("content-type") != contentType {
-		fmt.Println("I am here content-type")
 		errors.WriteError(w, errors.ErrorContentType)
 		return
 	}
@@ -66,7 +60,6 @@ func (h *RequestHandler) GetMongo(w http.ResponseWriter, r *http.Request) {
 	// create pipe from filter (request body)
 	pipe, err := modelMongo.CreatePipe(filter)
 	if err != nil {
-		fmt.Println("pipe error", err)
 		errors.WriteError(w, err)
 		return
 	}
@@ -75,7 +68,6 @@ func (h *RequestHandler) GetMongo(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
 	results, err := h.mongoDB.Get(ctx, pipe)
 	if err != nil {
-		fmt.Println("aggregte", err)
 		errors.WriteError(w, err)
 		return
 	}
@@ -115,7 +107,6 @@ func (h *RequestHandler) InMemory(w http.ResponseWriter, r *http.Request) {
 			errors.WriteError(w, err)
 			return
 		}
-		w.WriteHeader(http.StatusOK)
 	} else { // Neither Post nor Get
 		errors.WriteError(w, errors.ErrorUnsupportedMethod)
 		return

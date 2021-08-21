@@ -22,7 +22,6 @@ import (
 )
 
 func newTestServer() (*httptest.Server, mongo.Client) {
-
 	mongoClient, collection := mongoModel.NewClient()
 
 	// create mongo db
@@ -114,7 +113,6 @@ func TestRequestHandler_GetMongo(t *testing.T) {
 	for _, tt := range cases {
 		t.Run(tt.name, func(t *testing.T) {
 			url := fmt.Sprintf("%s/records", ts.URL)
-			fmt.Println("url", url)
 
 			jsonBody, _ := json.Marshal(tt.requestBody)
 			request, err := http.NewRequest(tt.httpMethod, url, strings.NewReader(string(jsonBody)))
