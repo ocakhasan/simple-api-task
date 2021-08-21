@@ -1,5 +1,7 @@
 # GETIR-API-TASK
 
+Project is live at [https://hasan-getir-api-task.herokuapp.com](https://hasan-getir-api-task.herokuapp.com).
+
 This repository represents a simple rest api which has 2 different endpoints.
 
 If you would like to work on this repository, you need to follow the below steps.
@@ -52,7 +54,11 @@ What you need to do is to create a `POST` request to `/records` endpoint. Also, 
 
 You can create the request with following command
 ```bash
-curl -X POST "localhost:3000/records" -H 'Content-Type: application/json' -d '{ "startDate": "2016-01-02", "endDate": "2021-01-02", "minCount": 1200, "maxCount": 4200}'
+curl -X POST "localhost:3000/records"  -d '{ "startDate": "2016-01-02", "endDate": "2021-01-02", "minCount": 1200, "maxCount": 4200}' -H 'Content-Type: application/json'
+```
+or from the live website
+```bash
+curl -X POST "https://hasan-getir-api-task.herokuapp.com/records" -d '{ "startDate": "2016-01-02", "endDate": "2021-01-02", "minCount": 1200, "maxCount": 4200}' -H 'Content-Type: application/json' 
 ```
 
 ### Post data to InMemory
@@ -68,15 +74,22 @@ You can create the request with following command
 ```bash
 curl -X POST "localhost:3000/inmemory" -H 'Content-Type: application/json' -d '{ "key": "getir-task", "value": "api"}'
 ```
+or from the live website
+```bash
+curl -X POST "https://hasan-getir-api-task.herokuapp.com/inmemory" -H 'Content-Type: application/json' -d '{ "key": "getir-task", "value": "api"}'
+```
 
 ### Get data from Inmemory
 What you need to do is to create a `POST` request to `inmemory` endpoint with a query `key`. 
 
 You can create the request with following command
-```
+```bash
 curl -X GET "localhost:3000/inmemory?key=getir-task" 
 ```
-
+or from the live website
+```bash
+curl -X GET "https://hasan-getir-api-task.herokuapp.com/inmemory?key=getir-task" 
+```
 It will return 
 ```json
 {
